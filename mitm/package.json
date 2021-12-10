@@ -1,0 +1,18 @@
+{
+  "name": "xcomfort-nodejs",
+  "version": "1.0.0",
+  "description": "Eaton XComfort nodejs wrapper",
+  "main": "main.js",
+  "type": "module",
+  "dependencies": {
+    "jsrsasign": "^10.5.1",
+    "node-rsa": "^1.1.1",
+    "sshpk": "^1.16.1",
+    "ws": "^8.3.0"
+  },
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
