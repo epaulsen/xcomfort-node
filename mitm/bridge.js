@@ -51,6 +51,29 @@ class bc {
         return decrypted;
     }
 
+    sanitize(data)
+    {
+        for(let i=data.byteLength;i>=0;i--)
+        {
+            if(data[i] == 125)
+            {
+                let r = class {
+                    constructor(buf,pad) {
+                        this.padding = pad;
+                        this.Message = JSON.parse(buf.toString('utf8'));
+    
+                        this.unSanitize = function() {                        
+                            return Buffer.concat([Buffer.from(JSON.stringify(this.Message)),this.padding]);
+                        }
+                    }                
+                }
+                return new r(data.slice(0,i+1),data.slice(i+1));
+            }
+        }
+        return null;
+    }
+
+
     getcontent(data)
     {
         data = data.toString();
